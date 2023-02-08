@@ -7,7 +7,7 @@ import main.observer.SalesTeam;
 public class Main {
 
     public static void main(String[] args) {
-        Bank bank = new Bank();
+        Bank bank = Bank.getInstance();
         SalesTeam salesTeam = new SalesTeam();
         bank.addObserver(salesTeam);
 
@@ -18,5 +18,6 @@ public class Main {
         bank.addCustomer(customer2);
 
         bank.removeCustomer(customer1);
+        bank.removeCustomer(customer2);
     }
 }

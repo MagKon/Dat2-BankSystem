@@ -1,20 +1,18 @@
 package main.observer;
 
+import main.Bank;
 import main.entities.Customer;
+import main.observer.CustomerObserver;
 
 public class SalesTeam implements CustomerObserver {
 
     @Override
     public void onCustomerAdded(Customer customer) {
-        System.out.println("Hello " + customer.getName() + ", welcome to the bank!");
+        System.out.println("Customer added: " + customer.getName() + " to " + Bank.getInstance());
     }
 
     @Override
     public void onCustomerRemoved(Customer customer) {
-        System.out.println("Hello " + customer.getName() + ", where did you go?");
-    }
-
-    public void makeCampaign() {
-        System.out.println("Write to all media");
+        System.out.println("Customer removed: " + customer.getName() + " from " + Bank.getInstance());
     }
 }

@@ -7,11 +7,18 @@ import main.observer.CustomerObserver;
 import java.util.ArrayList;
 
 public class Bank {
-
+    private static Bank instance = null;
     private final ArrayList<Customer> customers = new ArrayList<>();
     private final ArrayList<CustomerObserver> observers = new ArrayList<>();
 
-    public Bank() { }
+    private Bank() { }
+
+    public static Bank getInstance() {
+        if (instance == null) {
+            instance = new Bank();
+        }
+        return instance;
+    }
 
     public boolean transferMoney(BankAccount fromAccount, BankAccount toAccount, double amount) {
         if (fromAccount == null || toAccount == null) {
